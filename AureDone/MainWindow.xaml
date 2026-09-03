@@ -63,12 +63,46 @@
         <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
                 Background="{StaticResource BgSecondary}"
                 BorderBrush="{StaticResource Border}"
-                BorderThickness="0,0,0,0">
-            <!-- Header -->
-            <TextBlock DockPanel.Dock="Top"
-                       Text="AUREDONE" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{StaticResource TextPrimary}"
-                       Margin="20,10,0,10"/>
+                BorderThickness="0,0,0,1"
+                >
+            <DockPanel MinHeight="40">
+
+                <!-- Logo + name -->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left"
+                            Margin="16,0,0,0" VerticalAlignment="Center">
+                    
+                    <!-- Application name -->
+                    <TextBlock Text="AUREDONE" FontSize="16" FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimary}"
+                               Margin="10,0,0,0"/>
+                    
+                </StackPanel>
+
+                <!-- Window buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
+                    <Button Name="BtnMinimize" Style="{StaticResource CaptionButton}"
+                            ToolTip="Minimize" Click="Button_Action_Minimize">
+                        <Path Data="M 0 5 H 10" Width="10" Height="10"
+                              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                              StrokeThickness="1"/>
+                    </Button>
+
+                    <Button Name="BtnMaximize" Style="{StaticResource CaptionButton}"
+                            ToolTip="Maximize" Click="Button_Action_Maximize">
+                        <Path Data="M 0.5 0.5 H 9.5 V 9.5 H 0.5 Z" Width="10" Height="10"
+                              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                              StrokeThickness="1"/>
+                    </Button>
+
+                    <Button Name="BtnClose" Style="{StaticResource CaptionButtonClose}"
+                            ToolTip="Close" Click="Button_Action_Close">
+                        <Path Data="M 0 0 L 10 10 M 10 0 L 0 10" Width="10" Height="10"
+                              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                              StrokeThickness="1"/>
+                    </Button>
+                </StackPanel>
+
+            </DockPanel>
         </Border>
         
         <!-- Sidebar -->
